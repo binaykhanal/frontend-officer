@@ -5,7 +5,7 @@ const Docs = () => {
     <div className="p-6 max-w-lg mx-auto bg-white shadow-md rounded-lg mt-6">
       <h2 className="text-2xl font-bold mb-4">Libraries Used</h2>
       <p className="mb-2">
-        <strong>Tailwind CSS</strong>: Used for responsive, utility-first
+        <strong>Tailwind CSS</strong>: Used for responsive and attractive
         styling.
       </p>
       <p className="mb-2">
