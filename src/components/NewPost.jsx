@@ -1,17 +1,29 @@
 import React, { useState } from "react";
 import { supabase } from "../supabase/supabaseClient.js";
+import { useNavigate } from "react-router-dom";
 
 const NewPost = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const navigate = useNavigate();
 
   const submitPost = async () => {
+    // Validate input fields
+    if (!title || !content) {
+      alert("Please fill in both the title and content fields.");
+      return;
+    }
+
     const { error } = await supabase.from("posts").insert([{ title, content }]);
-    if (error) console.error("Error submitting post:", error.message);
-    else {
+    if (error) {
+      console.error("Error submitting post:", error.message);
+      alert("Error submitting post.");
+    } else {
       setTitle("");
       setContent("");
       alert("Post submitted successfully!");
+
+      navigate("/");
     }
   };
 
